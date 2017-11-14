@@ -1,0 +1,29 @@
+# RoomReservingatOSU
+Students have massive difficulty searching for study rooms on campus to use for personal use, group use, and/or practice a presentation.  Examples of high-priority rooms include those with projectors, HDMI hook up, whiteboards, quiet areas, and outlets -- just to name a few. Our application would like to target students with specific needs to observe which rooms have available equipment, are empty, and provide the most optimal study space for their needs.
+
+
+Tables
+Building Names, Equipment, Student Numbers/IDs/username, Availability, Room size/Dimensions, Study Group, Condition
+
+Requirements
+Users can sign up for accounts with passwords
+Connect with ONID
+Users can log in and out of their accounts
+Users must be OSU student
+Members can sign up/reserve tables
+Based on building, room size/dimension
+Ability to cancel/edit reservation
+All members can view which rooms are available
+Ability of creating a “study group”
+All members in group can use the reserved room
+
+Regulations
+Students can only reserve a maximum time of 5 hours, minimum of 30 minutes
+Hourly check in notification per student session to ensure the room is being used
+Penalty for abusing room space/time capacity is temporary suspension of account
+User must begin and end session by reporting the condition of the room
+Penalty applies
+Penalty applies if user who reserved the room cancels designated room late
+Users can only reserve one room per group at a time
+Only one account per ONID/OSU ID
+Groups will be capped at the number of chairs available in the room
