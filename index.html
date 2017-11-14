@@ -5,5 +5,50 @@
 </style>
 </head>
 <body>
+  <?php
+	if(isset($_POST['username']) && isset($_POST['password'])) {
+		define('HOST', 'classmysql.engr.oregonstate.edu');
+		define('USER', 'cs340_challas');
+		define('PASS',  'ABC123');
+		define('DBNAME', 'cs340_challas');
+
+		// Create connection
+		$conn = mysqli_connect(HOST, USER, PASS, DBNAME);
+		// Check connection
+
+		if (!$conn) {
+	    		die("Connection failed");
+		} else {
+	    		echo "Connected!";
+		}
+
+		$Username = mysqli_real_escape_string($conn, $_POST['username']);
+
+		$getSalt = "SELECT salt FROM Users WHERE username='$Username'";
+		$Result = mysqli_query($conn, $getSalt);
+
+		if (mysqli_num_rows($Result) == 1)
+		{
+			$Salt = mysqli_fetch_array($Result)['0'];
+		} else {
+			echo "Account not found";
+		}
+
+		$Password = MD5(mysqli_real_escape_string($conn, $_POST['password']) . $Salt);
+
+		$findUserPass= "SELECT * FROM Users WHERE username='$Username' and password='$Password'";
+		$checkUserPass= mysqli_query($conn, $findUserPass);
+
+		if (mysqli_num_rows($checkUserPass) == 1)
+		{
+			echo "Logged in!";
+
+		} else {
+			echo "Not logged in";
+		}
+
+	mysqli_close($conn);
+}
+?>
 </body>
 </html>
