@@ -1,0 +1,84 @@
+/*style.css*/
+body {
+  font-family: 'Bree Serif'; font-size: 32px;
+  margin: 0;
+  background-color: #f0f0f0;
+}
+
+a {
+  font-family: 'Pacifico'; font-size: 40px;
+  text-decoration: none;
+}
+
+.site-title{
+  font-size: 36px;
+  color: black;
+  background-color:#c0c0c0;
+  text-align: center;
+  padding: 10px;
+  margin: 0;
+}
+
+.page-title {
+  margin: 0;
+  padding: 10px 20px;
+  font-size: 30px;
+  font-weight: 100;
+  background-color: #1e496b;
+  color: #fff;
+  border: 3px solid #1b374f;
+  text-align: center;
+}
+
+.box-container {
+  margin: 50px 10%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.optionsboxes {
+  flex: 1 10%;
+  display: flex;
+  margin: 2px;
+  padding: 5px;
+  /*border: 3px solid #1b374f;
+  border-radius: 1px;*/
+  color: #fff;
+  /*background-color: #1e496b;*/
+  text-align: center;
+}
+
+#account {
+  background-color: #4a86e8ff;
+  border-color: black;
+}
+
+#find {
+  background-color: #4a86e8ff;
+  border-color: blue;
+}
+
+#edit {
+  background-color: #4a86e8ff;
+  border-color: darkred;
+}
+
+#about {
+  background-color: #4a86e8ff;
+  border-color: purple;
+}
+
+.thebuttons {
+  font-size: 30px;
+  border-radius: 10%;
+  padding: 20px;
+  border-width: thick;
+}
+
+.box-content {
+  box-shadow: 10px 10px 20px #888888;
+}
+
+.box-content p {
+  margin: 0;
+}
