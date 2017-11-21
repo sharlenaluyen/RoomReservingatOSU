@@ -8,7 +8,8 @@ body {
 .navbar {
   background-color: #fff;
   font-size: 18px;
-  line-height: 22px;
+  line-height: 35px;
+  text-align: center;
 }
 
 .navlist {
@@ -19,6 +20,48 @@ body {
 .navitem {
   display: inline-block;
 }
+
+.videowrapper video {
+    width: 100% !important;
+    height: 100% !important;
+    position: relative;
+    top: 0;
+    left: 0;
+    text-align: center;
+    overflow: hidden;
+    overflow-y: hidden;
+}
+
+audio, canvas, progress, video {
+    display: center;
+}
+/*    object-fit: contain;
+}
+
+@media (min-width: 1500px)
+.bignumber {
+    font-size: 400px;
+}
+@media (min-width: 992px)
+.bignumber {
+
+}
+
+.bignumber {
+
+    text-align: center;
+    position: relative;
+    top: 50%;
+    font-family: "Stratum2WebBold",sans-serif;
+    color: rgba(255,255,255,.4);
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}*/
+
+
 
 a {
   font-family: 'Pacifico'; font-size: 24px;
@@ -50,9 +93,9 @@ a:focus {
   padding: 10px 20px;
   font-size: 30px;
   font-weight: 100;
-  background-color: #1e496b;
+  background-color: #286da8;
   color: #fff;
-  border: 3px solid #286da8;
+  border: 3px solid #1e496b;
   text-align: center;
 }
 
