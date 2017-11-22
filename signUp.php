@@ -2,34 +2,27 @@
 <html>
 <head>
 <style>
+	<link rel="stylesheet" href="index.css" media="screen">
 </style>
 </head>
 <body>
 <h2>Creat a login</h2>
 <form action="create.php" method="post">
    <p>
-      <label for="sUsername">Username:</label>
-      <input type="text" name="sUsername" id="sUsername">
+      <label for="sOSU_ID">OSU ID:</label>
+      <input type="text" name="sOSU_ID" id="sOSU_ID">
    </p>
    <p>
-      <label for="sFirstName">First Name:</label>
-      <input type="text" name="sFirstName" id="sFirstName">
+      <label for="sUserName">Username:</label>
+      <input type="text" name="sUserName" id="sUserName">
    </p>
    <p>
-      <label for="sLastName">Last Name</label>
-      <input type="text" name="sLastName" id="sLastName">
-   </p>
-   <p>
-      <label for="sEmail">Email:</label>
-      <input type="text" name="sEmail" id="sEmail">
+      <label for="sName">Name:</label>
+      <input type="text" name="sName" id="sName">
    </p>
    <p>
       <label for="sPassword">Password:</label>
       <input type="password" name="sPassword" id="sPassword">
-   </p>
-   <p>
-      <label for="sAge">Age:</label>
-      <input type="text" name="sAge" id="sAge">
    </p>
    <input type="submit" value="Submit">
 </form>

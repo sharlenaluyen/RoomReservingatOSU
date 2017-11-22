@@ -1,32 +1,17 @@
 <!DOCTYPE html>
 <head>
+  <link href="https://fonts.googleapis.com/css?family=Pacifico" rel"stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=BreeSerif" rel="stylesheet">
+  <link rel="stylesheet" href="index.css" media="screen">
 <style>
-	html{
-  	  background-image:url(images/justinBissonBeck.jpg);
-  	  background-repeat:no-repeat;
-  	  background-size:contain;
-  	  -webkit-background-size:cover;
-  	  -moz-background-size:cover;
-  	  -o-background-size:cover;
- 	  background-size:cover;
- 	  font-family:'Helvetica Neue', sans-serif;	
-	}
-	.button {
-   	  background-color: #D85A1A;
-   	  border: none;
-   	  color: #000000;
-   	  padding: 15px 32px;
-  	  text-align: center;
-  	  text-decoration: none;
-   	  display: inline-block;
-   	  font-size: 16px;
-   	  margin: 4px 2px;
-   	  cursor: pointer;
-  	  float: center;
-	  position: relative;
-	}
+#back_button{
+	position:absolute;
+	transition: .5s ease;
+	top:50%;
+	left:50%;
+	float:left;
+}
 </style>
-
 </head>
 <body>
 <?php
@@ -51,13 +36,13 @@
 
 		$query = "INSERT INTO Project_Users (OSU_ID, Username, Student_Name, Password, salt) VALUES ( '$sOSU_ID', '$sUserName', '$sName','$passwordmd5', '$salt')";
 		if (mysqli_query($conn, $query)){
-			echo "User Created.";
+			echo "<div>User Created.</div>";
+			echo "<a href='index.html class='back_button'>Back</a>";
 		}
 		else{
-			echo "ERROR: " . mysqli_error($conn);
+			echo "<div>ERROR: " . mysqli_error($conn) ."</div><a href='signUp.php' class='back_button'>Back</a> ";
 		}
 	mysqli_close($conn);
 ?>
-<a href="index.html" class="button">Back</a>
 </body>
 </html>
