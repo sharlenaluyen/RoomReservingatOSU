@@ -33,32 +33,30 @@
 	include 'connectvarsEECS.php';// User credentials
 
 	$conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+
 	if (!$conn){
 		die('Could not connect: ' . mysql_error());
 	}
 // Escape is used for input security
-	$sUsername = mysqli_real_escape_string($conn, $_POST['sUsername']);
-	$sFirstName = mysqli_real_escape_string($conn, $_POST['sFirstName']);
-	$sLastName = mysqli_real_escape_string($conn, $_POST['sLastName']);
-	$sEmail = mysqli_real_escape_string($conn, $_POST['sEmail']);
+	$sOSU_ID = mysqli_real_escape_string($conn, $_POST['sOSU_ID']);
+	$sUserName = mysqli_real_escape_string($conn, $_POST['sUserName']);
+	$sName = mysqli_real_escape_string($conn, $_POST['sName']);
 	$sPassword = mysqli_real_escape_string($conn, $_POST['sPassword']);
-	$sAge = mysqli_real_escape_string($conn, $_POST['sAge']);
-	
 
-	// Tries to insert the query
+// Tries to insert the query
 		$salt = rand(10000,90000);// Creates a random salt
 		$sPassword .= (string) $salt;
 		echo "$saltPassword";
 		$passwordmd5 = md5($sPassword);
-		$query = "INSERT INTO Users (sUsername, sFirstName, sLastName, sEmail, sPassword, sAge, salt) VALUES ( '$sUsername', '$sFirstName', '$sLastName', '$sEmail', '$passwordmd5', '$sAge', '$salt')";
+
+		$query = "INSERT INTO Project_Users (OSU_ID, Username, Student_Name, Password, salt) VALUES ( '$sOSU_ID', '$sUserName', '$sName','$passwordmd5', '$salt')";
 		if (mysqli_query($conn, $query)){
 			echo "User Created.";
 		}
 		else{
 			echo "ERROR: " . mysqli_error($conn);
 		}
-	}
-	mysqli_close($conn)
+	mysqli_close($conn);
 ?>
 <a href="index.html" class="button">Back</a>
 </body>
