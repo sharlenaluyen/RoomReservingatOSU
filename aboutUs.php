@@ -24,6 +24,7 @@
           <li class="navitem navlink active"><a href="aboutUs/SharlenaProfile/sharlena.php">Sharlena</a></li>
           <li class="navitem navlink"><a href="aboutUs/ShanmukhProfile/shanmukh.php">Shanmukh</a></li>
 	  <li class="navitem navlink"><a href="aboutUs/EthanProfile/ethan.php">Ethan Patterson</a></li>
+	  <li class="navitem navlink"><a href="aboutUs/FAQ/faq.php">Page FAQ</a></li>
           </li>
         </ul>
       </nav>
