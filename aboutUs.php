@@ -24,9 +24,17 @@
           <li class="navitem navlink active"><a href="aboutUs/SharlenaProfile/sharlena.php">Sharlena</a></li>
           <li class="navitem navlink"><a href="aboutUs/ShanmukhProfile/shanmukh.php">Shanmukh</a></li>
 	  <li class="navitem navlink"><a href="aboutUs/EthanProfile/ethan.php">Ethan Patterson</a></li>
+	  <li class="navitem navlink"><a href="aboutUs/FAQ/faq.php">Page FAQ</a></li>
           </li>
         </ul>
       </nav>
     </header>
+<div class ="videowrapper">
+    <video width="320" height="240" autoplay="" loop="" poster="http://oregonstate.edu/sites/default/files/fall.jpg">
+      <source src="http://sites.oregonstate.edu/DONTDELETE/fall.mp4" type="video/mp4">
+        <source src="http://sites.oregonstate.edu/DONTDELETE/fall.ogg" type="video/ogg">
+          Your browser does not support the video tag. </video>
+</div>
+
   </body>
 </html>
