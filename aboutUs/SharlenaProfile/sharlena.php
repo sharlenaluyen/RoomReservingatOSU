@@ -19,6 +19,9 @@
       <i class="fa fa-twitter" aria-hidden="true"></i></a>
     <a href="#" target="_blank" <i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
     <a href="#" target="_blank" <i class="fa fa-facebook-official" aria-hidden="true"></i></a>
+    <form action="../../aboutUs.php" method="get">
+      <input type="submit" value="Back">
+    </form>
   </div>
 </div>
 <div class="image-cred">
