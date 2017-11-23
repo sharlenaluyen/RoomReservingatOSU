@@ -29,5 +29,12 @@
         </ul>
       </nav>
     </header>
+<div class ="videowrapper">
+    <video width="320" height="240" autoplay="" loop="" poster="http://oregonstate.edu/sites/default/files/fall.jpg">
+      <source src="http://sites.oregonstate.edu/DONTDELETE/fall.mp4" type="video/mp4">
+        <source src="http://sites.oregonstate.edu/DONTDELETE/fall.ogg" type="video/ogg">
+          Your browser does not support the video tag. </video>
+</div>
+
   </body>
 </html>
