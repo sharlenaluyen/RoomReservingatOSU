@@ -9,7 +9,7 @@
         <h2>Sign Up</h2>
         <input type="text" for="sOSU_ID" name="sOSU_ID" id="sOSU_ID" placeholder="Enter OSU ID"/>
         <input type="text" id="sUserName" name="sUserName" id="sUserName" placeholder="Enter Username"/>
-        <input type="text" for="sName" name="sName" id="sName" placeholder="Enter Username"/>
+        <input type="text" for="sName" name="sName" id="sName" placeholder="Enter your name"/>
 	<input type="password" for="sPassword" name="sPassword"id="sPassword" placeholder="Enter Password"/>
 	<input type="submit" id="signUp-btn" value="Sign Up">
       </form>
@@ -24,7 +24,7 @@
     </div>
 <div id="id01" class="modal">
   
-  <form class="modal-content animate" action="/action_page.php">
+  <form class="modal-content animate" action="action_page.php" method="post">
     <div class="imgcontainer">
       <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
       <img src="images/img_avatar.png" alt="Avatar" class="avatar">
