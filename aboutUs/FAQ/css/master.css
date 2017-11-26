@@ -8,15 +8,15 @@ html{
   background-size:cover;
   font-family:'Helvetica Neue', sans-serif;	
 }
-h1{
+p{
   font-weight:100;
   letter-spacing:2;
-  font-size:40px;
+  font-size:20px;
 }
 .info-box{
   width:800px;
   height:450px;
-  background:rgba(0,0,0,0.6);
+  background:rgba(0,0,0,0.7);
   padding:40px;
   color:white;
   margin:0 auto;
