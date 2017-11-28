@@ -6,7 +6,7 @@
 <body>
 <div class="prof-box">
   <img src="images/profile.jpg" class="prof-pic">
-  <h1>Sharlena</h1>
+  <h1>Sharlena Luyen</h1>
   <h5>OSU Student | [major]</h5>
   <div class="line-break"></div>
   <p>

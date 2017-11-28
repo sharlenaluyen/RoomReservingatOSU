@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+<!DOCTYPE html
+
 <!-- Insert into Student table CS 340 -->
 <html>
 	<head>
@@ -19,6 +20,7 @@
 	</head>
 <body>
 <?php
+	session_start();
 // change the value of $dbuser and $dbpass to your username and password
 	include '../connectvarsEECS.php'; 
 	
@@ -27,7 +29,7 @@
 		die('Could not connect: ' . mysql_error());
 	}
 
-// Escape user inputs for security
+	// Escape user inputs for security
 	$user = mysqli_real_escape_string($conn, $_POST['uname']);
 	$pass = mysqli_real_escape_string($conn, $_POST['psw']);
 
@@ -46,8 +48,11 @@
 	// If statment checks if hashed password is the same password in the database
 	if ($pass == $dbPass){
 		echo "<p>User loged In</p>";
-		echo "<form action='../index.html' method='post'>";
+		echo "<form action='../index.php' method='post'>";
 		echo "<input type='submit' value='Home'>";
+		$_SESSION["usr"] = $user; 
+		echo "<a>Loged in as " . $_SESSION["usr"] . "</a>";
+		echo print_r($_SESSION);
 	}
 	else{
 		echo "Username/Password not found";

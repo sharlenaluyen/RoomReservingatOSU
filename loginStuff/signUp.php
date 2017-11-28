@@ -17,7 +17,7 @@
 	 <h1>Already a user?</h1>
         <button onclick="document.getElementById('id01').style.display='block'">Login</button>
       </div>
-        <form action="../index.html" method="get">
+        <form action="../index.php" method="get">
           <input type="submit" value="Back">
         </form>
     </div>

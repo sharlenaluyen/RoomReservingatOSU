@@ -37,7 +37,7 @@
 		$query = "INSERT INTO Project_Users (OSU_ID, Username, Student_Name, Password, salt) VALUES ( '$sOSU_ID', '$sUserName', '$sName','$passwordmd5', '$salt')";
 		if (mysqli_query($conn, $query)){
 			echo "<div>User Created.</div>";
-			echo "<a href='index.html class='back_button'>Back</a>";
+			echo "<a href='../index.php' class='back_button'>Back</a>";
 		}
 		else{
 			echo "<div>ERROR: " . mysqli_error($conn) ."</div><a href='signUp.php' class='back_button'>Back</a> ";
