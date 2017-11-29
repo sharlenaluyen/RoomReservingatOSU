@@ -33,21 +33,15 @@
 		echo "<h3 class='masthead-brand'>Username: " . $_SESSION["usr"] . "</h3>"; 
 	  ?>
               <nav class="nav nav-masthead">
-                <a class="nav-link active" href="../index.php">Home</a>
-                <a class="nav-link" href="userSettings.php">Settings</a>
+                <a class="nav-link" href="../index.php">Home</a>
+                <a class="nav-link active" href="#">Settings</a>
                 <a class="nav-link" href="signOut.php">Sign Out</a>
               </nav>
             </div>
           </header>
 
 	  <main role="main" class="inner cover">
-	  <?php
-		echo "<h1 class='cover-heading'> Student ONID: " . $_SESSION["onid"] . "</h1";
-	  ?>
-            <p class="lead">This is your account page<p>
-            <p class="lead">
-              <!--<a href="#" class="btn btn-lg btn-secondary">Learn more</a>-->
-            </p>
+		<button onclick="document.getElementById('id01').style.display='block'">Change password</button>
 	  </main>
 
         </div>
@@ -55,6 +49,24 @@
       </div>
 
     </div>
+<div id="id01" class="modal">
+  
+  <form class="modal-content animate" action="#" method="post">
+    <div class="container">
+      <label><b>Old Password</b></label>
+      <input type="text" placeholder="Enter Username" name="uname" required>
+
+      <label><b>New Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+        
+      <button type="submit">Update</button>
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+    </div>
+  </form>
+</div>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -63,5 +75,13 @@
     <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery.min.js"><\/script>')</script>
     <script src="../../../../assets/js/vendor/popper.min.js"></script>
     <script src="../../../../dist/js/bootstrap.min.js"></script>
+    <script>
+      var modal = document.getElementById('id01');
+      window.onclick = function(event){
+	if (event.target == modal){
+		modal.style.display = "none";
+	}
+      }
+    </script>
   </body>
 </html>
