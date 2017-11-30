@@ -18,7 +18,8 @@ body {
 }
 
 .navitem {
-  display: inline-block;
+  display: inline-block, center;
+  text-align: center;
 }
 
 .videowrapper video {
