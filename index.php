@@ -32,10 +32,10 @@
           <li class="navitem navlink active"><a href="#">Home</a></li>
 	  <?php
 		if($_SESSION["usr"] == ""){
-	  		echo "<li class='navitem navlink'><a href='loginStuff/signUp.php'>My Account</a></li>";
+	  		echo "<li class='navitem navlink'><a href='loginStuff/signUp.php'>Account</a></li>";
 		}
 		else{
-			echo "<li class='navitem navlink'><a href='loginStuff/account.php'>My Account</a></li>";
+			echo "<li class='navitem navlink'><a href='loginStuff/account.php'>Account</a></li>";
 		}
 	  ?>
           <li class="navitem navlink"><a href="down.html">Find a Study Space</a></li>
