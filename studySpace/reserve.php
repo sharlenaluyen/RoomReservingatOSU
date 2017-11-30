@@ -1,6 +1,9 @@
+<<<<<<< HEAD
 <?php
 	session_start();
 ?>
+=======
+>>>>>>> refs/remotes/origin/ethan
 <!doctype html>
 <html lang="en">
   <head>
@@ -63,6 +66,10 @@
 
     </main><!-- /.container -->
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> refs/remotes/origin/ethan
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
@@ -72,3 +79,7 @@
     <script src="../../../../dist/js/bootstrap.min.js"></script>
   </body>
 </html>
+<<<<<<< HEAD
+=======
+
+>>>>>>> refs/remotes/origin/ethan

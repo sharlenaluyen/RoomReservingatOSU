@@ -32,6 +32,7 @@
           <li class="navitem navlink active"><a href="#">Home</a></li>
 	  <?php
 		if($_SESSION["usr"] == ""){
+<<<<<<< HEAD
 	  		echo "<li class='navitem navlink'><a href='loginStuff/signUp.php'>My Account</a></li>";
 		}
 		else{
