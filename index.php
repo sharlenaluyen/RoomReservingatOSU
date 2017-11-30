@@ -20,7 +20,6 @@
   <body>
     <header>
       <a href="#"><h1 class="site-title"><i class=""></i>Reserve a Room on OSU's Campus</h1></a>
-      <a href="#"><h1 class="page-title">Home</h1></a>
 
       <nav class="navbar">
 	<ul class="navlist">
@@ -38,7 +37,7 @@
 			echo "<li class='navitem navlink'><a href='loginStuff/account.php'>Account</a></li>";
 		}
 	  ?>
-          <li class="navitem navlink"><a href="studySpace/reserve.php">Find a Study Space</a></li>
+          <li class="navitem navlink"><a href="down.html">Find a Study Space</a></li>
           <li class="navitem navlink"><a href="down.html">Edit a Study Space</a></li>
           <li class="navitem navlink"><a href="aboutUs.php">About Us</a></li>
           <li class="navitem navbar-search">
