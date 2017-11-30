@@ -38,7 +38,7 @@
 			echo "<li class='navitem navlink'><a href='loginStuff/account.php'>My Account</a></li>";
 		}
 	  ?>
-          <li class="navitem navlink"><a href="down.html">Find a Study Space</a></li>
+          <li class="navitem navlink"><a href="studySpace/reserve.php">Find a Study Space</a></li>
           <li class="navitem navlink"><a href="down.html">Edit a Study Space</a></li>
           <li class="navitem navlink"><a href="aboutUs.php">About Us</a></li>
           <li class="navitem navbar-search">
