@@ -51,13 +51,13 @@
     </div>
 <div id="id01" class="modal">
   
-  <form class="modal-content animate" action="#" method="post">
+  <form class="modal-content animate" action="passUpdate.php" method="post">
     <div class="container">
       <label><b>Old Password</b></label>
-      <input type="text" placeholder="Enter Username" name="uname" required>
+      <input type="text" placeholder="Enter Old Password" name="old_psw" required>
 
       <label><b>New Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
+      <input type="password" placeholder="Enter New Password" name="new_psw" required>
         
       <button type="submit">Update</button>
     </div>
