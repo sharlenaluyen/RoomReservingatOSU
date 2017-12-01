@@ -1,0 +1,19 @@
+	Used to find a user’s Scheduled Reservation time based off 
+	user ID, will find all a user’s Reservations.
+	============================================
+	SELECT * FROM Project_Reservation 
+	WHERE OSU_ID IN
+	(SELECT OSU_ID FROM Project_Calender
+	UNION
+	SELECT OSU_ID FROM Project_Reservation 
+	NATURAL JOIN Project_Users) AND OSU_ID = '[OSU ID here]'
+	#############################################
+	Used to find all users with reservations.
+	============================================
+	SELECT * FROM Project_Reservation
+	WHERE OSU_ID IN
+	(SELECT OSU_ID FROM Project_Calender
+	UNION
+	SELECT OSU_ID FROM Project_Reservation 
+	NATURAL JOIN Project_Users) ORDER by OSU_ID
+	#############################################
