@@ -25,7 +25,7 @@
 	<ul class="navlist">
 	  <?php
 	     if ($_SESSION["usr"] != ""){
-	     	echo "<li class='navitem navlink'><a href='#'>Logged in as " . $_SESSION["usr"] . "</a></li>";
+	     	echo "<li class='navitem navlink'><a>Logged in as " . $_SESSION["usr"] . "</a></li>"; //href='#'
 	     }
 	  ?>
           <li class="navitem navlink active"><a href="#">Home</a></li>

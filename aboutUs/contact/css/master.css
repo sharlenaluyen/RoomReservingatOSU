@@ -47,6 +47,7 @@ p{
 
 body {
   font-family: 'Bree Serif'; font-size: 32px;
+  text-shadow: 0 .05rem .1rem rgba(0,0,0,.5);
   margin: 0;
   background-color: #f0f0f0;
   text-align: center;
