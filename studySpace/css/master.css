@@ -1,9 +1,9 @@
 .reservation-box{
     position: absolute;
     left: 25%;
-    top: 60%;
+    top: 70%;
     width: 50%;
-    hight: 200px;
+    height: 200px;
     text-align: center;
     font-size: 18px;
     overflow:auto;
