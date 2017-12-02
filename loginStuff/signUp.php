@@ -18,7 +18,7 @@
   <body>
 
     <header>
-      <a href="#"><h1 class="site-title"><i class=""></i>Reserve a Room on OSU's Campus</h1></a>
+      <a href="../index.php"><h1 class="site-title"><i class=""></i>Reserve a Room on OSU's Campus</h1></a>
 
       <nav class="navbar">
   <ul class="navlist">
@@ -27,7 +27,7 @@
         echo "<li class='navitem navlink'><a href='#'>Logged in as " . $_SESSION["usr"] . "</a></li>";
        }
     ?>
-          <li class="navitem navlink active"><a href="#">Home</a></li>
+          <li class="navitem navlink active"><a href="../index.php">Home</a></li>
     <?php
     if($_SESSION["usr"] == ""){
         echo "<li class='navitem navlink'><a href='loginStuff/signUp.php'>My Account</a></li>";
@@ -40,7 +40,7 @@
       echo "<li class='navitem navlink'><a href='down.html'>Edit a Study Space</a></li>";
     }
     ?>
-          <li class="navitem navlink"><a href="aboutUs.php">About Us</a></li>
+          <li class="navitem navlink"><a href="../aboutUs.php">About Us</a></li>
         </ul>
       </nav>
     </header>
@@ -50,16 +50,16 @@
         <input type="text" for="sOSU_ID" name="sOSU_ID" id="sOSU_ID" placeholder="Enter OSU ID"/>
         <input type="text" id="sUserName" name="sUserName" id="sUserName" placeholder="Enter Username"/>
         <input type="text" for="sName" name="sName" id="sName" placeholder="Enter your name"/>
-	<input type="password" for="sPassword" name="sPassword"id="sPassword" placeholder="Enter Password"/>
+	<input type="password" for="sPassword" name="sPassword" id="sPassword" placeholder="Enter Password"/>
 	<input type="submit" id="signUp-btn" value="Sign Up">
       </form>
       <div>
 	 <h1>Already a user?</h1>
         <button onclick="document.getElementById('id01').style.display='block'">Login</button>
       </div>
-        <form action="../index.php" method="get">
+       <!--  <form action="../index.php" method="get">
           <input type="submit" value="Back">
-        </form>
+        </form> -->
     </div>
     </div>
 <div id="id01" class="modal">

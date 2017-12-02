@@ -28,5 +28,21 @@
       </nav>
     </header>
 
+    <div class="info-box">
+    <p>
+       We hope this website serves as a useful tool for students to find study spaces that tailor to their personal needs. You will be 
+        able to find rooms across Oregon State University's campus to reserve at a certain day and time. You will also be able to see 
+        what each room offers in terms of equipment, condition, and size.
+       
+       <p/>
+       <p>
+       Creators: Ethan Patterson, Shanmukh Challa, and Sharlena Luyen
+
+       <p/>
+       <!-- <div class="icons">
+        <a href="../../aboutUs.php" class="button">Back</a>
+       </div> -->
+    </div>
+
   </body>
 </html>

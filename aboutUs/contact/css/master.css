@@ -6,7 +6,7 @@ html{
   -moz-background-size:cover;
   -o-background-size:cover;
   background-size:cover;
-  font-family:'Helvetica Neue', sans-serif;	
+  font-family: 'Bree Serif'; font-size: 32px;
 }
 p{
   font-weight:100;
@@ -167,4 +167,45 @@ a:focus {
 
 .hidden {
   display: none;
+}
+
+.row {
+font-size: 20px;
+};
+
+#sub{
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translate(-50%,-50%);
+}
+#sub h2{
+  text-align:center;
+  color:white;
+  font-family: 'Bree Serif'; 
+  
+  font-size:35px;
+}
+#sub h1{
+  text-align:center;
+  color:white;
+  font-family: 'Bree Serif'; 
+  
+  font-size:20px;
+}
+#sub input{
+  display:block;
+  width:320px;
+  height:40px;
+  padding:10px;
+  font-size:14px;
+  font-family: sans-serif;  
+
+  color:white;
+  background:rgba(0,0,0,0.3);
+  outline:none;
+  border:1px solid rbga(0,0,0,0.3);
+  border-radius:5px;
+  box-shadow:inset 0px -5px 45px rgba(100,100,100,0.2),0px 1px 1px rgba(255,255,255,0.2),0px;
+  margin-bottom:10px;
 }
