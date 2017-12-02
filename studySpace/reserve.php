@@ -137,7 +137,7 @@
 
 	$query = "SELECT * FROM Project_Reservation
 			WHERE OSU_ID IN
-			(SELECT OSU_ID FROM Project_Calender
+			(SELECT OSU_ID FROM Project_Calendar
 			UNION
 			SELECT OSU_ID FROM Project_Reservation 
 			NATURAL JOIN Project_Users) AND OSU_ID = '$onid'";
