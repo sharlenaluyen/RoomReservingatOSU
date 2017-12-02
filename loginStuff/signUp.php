@@ -1,9 +1,49 @@
+<!DOCTYPE html>
 <html>
   <head>
-	<link rel="stylesheet" href="css/master.css"/>
-        <link rel="stylesheet" href="css/index.css"/>
+
+    <link href= "https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+
+    <link href = "https://fonts.googleapis.com/css?family=BreeSerif" rel = "stylesheet">
+
+    <link rel="stylesheet" href="css/master.css"/>
+    <link rel="stylesheet" href="css/index.css"/>
+
+    <meta charset="utf-8">
+    <title>Room Reservation</title>
+    <link rel="stylesheet" href="index.css" media="screen">
+
   </head>
+
   <body>
+
+    <header>
+      <a href="#"><h1 class="site-title"><i class=""></i>Reserve a Room on OSU's Campus</h1></a>
+
+      <nav class="navbar">
+  <ul class="navlist">
+    <?php
+       if ($_SESSION["usr"] != ""){
+        echo "<li class='navitem navlink'><a href='#'>Logged in as " . $_SESSION["usr"] . "</a></li>";
+       }
+    ?>
+          <li class="navitem navlink active"><a href="#">Home</a></li>
+    <?php
+    if($_SESSION["usr"] == ""){
+        echo "<li class='navitem navlink'><a href='loginStuff/signUp.php'>My Account</a></li>";
+    }
+    else{
+      echo "<li class='navitem navlink'><a href='loginStuff/account.php'>My Account</a></li>";
+    
+      echo "<li class='navitem navlink'><a href='studySpace/reserve.php'>Find a Study Space</a></li>";
+
+      echo "<li class='navitem navlink'><a href='down.html'>Edit a Study Space</a></li>";
+    }
+    ?>
+          <li class="navitem navlink"><a href="aboutUs.php">About Us</a></li>
+        </ul>
+      </nav>
+    </header>
     <div id="signUp">
       <form action="create.php" method="post">
         <h2>Sign Up</h2>

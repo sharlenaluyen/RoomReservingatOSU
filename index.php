@@ -20,7 +20,6 @@
   <body>
     <header>
       <a href="#"><h1 class="site-title"><i class=""></i>Reserve a Room on OSU's Campus</h1></a>
-      <a href="#"><h1 class="page-title">Home</h1></a>
 
       <nav class="navbar">
 	<ul class="navlist">
@@ -43,10 +42,6 @@
 		}
 	  ?>
           <li class="navitem navlink"><a href="aboutUs.php">About Us</a></li>
-          <li class="navitem navbar-search">
-            <input type="text" id="navbar-search-input" placeholder="Search...">
-            <button type="button" id="navbar-search-button"><i class="fa fa-search"></i></button>
-          </li>
         </ul>
       </nav>
     </header>

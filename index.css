@@ -3,6 +3,7 @@ body {
   font-family: 'Bree Serif'; font-size: 32px;
   margin: 0;
   background-color: #f0f0f0;
+  text-align: center;
 }
 
 .navbar {
@@ -15,11 +16,11 @@ body {
 .navlist {
   margin: 0 0 0 20px;
   padding: 0;
+  text-align: center;
 }
 
 .navitem {
-  display: inline-block, center;
-  text-align: center;
+  display: inline-block;
 }
 
 .videowrapper video {
@@ -46,20 +47,6 @@ audio, canvas, progress, video {
 @media (min-width: 992px)
 .bignumber {
 
-}
-
-.bignumber {
-
-    text-align: center;
-    position: relative;
-    top: 50%;
-    font-family: "Stratum2WebBold",sans-serif;
-    color: rgba(255,255,255,.4);
-}
-
-p {
-    margin-top: 0;
-    margin-bottom: 1rem;
 }*/
 
 
@@ -107,44 +94,6 @@ a:focus {
 
 .navlink.active {
   box-shadow: inset 0 -3px #319df6;
-}
-
-.navbar-search {
-  float: right;
-  margin-right: 20px;
-  padding: 0;
-  line-height: 38px;
-}
-
-#navbar-search-input {
-  padding: 4px;
-  font-size: 16px;
-  background-color: #eee;
-  border: 1px solid #dadada;
-  border-radius: 2px;
-}
-
-#navbar-search-input:focus {
-  outline: none;
-  background-color: #fff;
-}
-
-#navbar-search-button {
-  margin-left: -5px;
-  font-size: 16px;
-  background: none;
-  border: none;
-  color: #343434;
-  cursor: pointer;
-}
-
-#navbar-search-button:hover {
-  color: #319df6;
-}
-
-#navbar-search-button:focus {
-  color: #319df6;
-  outline: none;
 }
 
 .box-container {
@@ -201,47 +150,4 @@ a:focus {
 
 .hidden {
   display: none;
-}
-
-.search-bar{
-  /*display: inline-block;*/
-  /*float: right;*/
-  /*align-items: center;*/
-  /*margin-right: 20px;*/
-  /*padding: 0;*/
-  /*line-height: 38px;*/
-  position: fixed;
-  top: 30%;
-  left: 30%;
-}
-
-#search-input {
-  padding: 4px;
-  font-size: 50px;
-  background-color: #eee;
-  border: 1px solid #dadada;
-  border-radius: 2px;
-}
-
-#search-input:focus {
-  outline: none;
-  background-color: #fff;
-}
-
-#search-button {
-  margin-left: -5px;
-  font-size: 50px;
-  background: none;
-  border: none;
-  color: #343434;
-  cursor: pointer;
-}
-
-#search-button:hover {
-  color: #319df6;
-}
-
-#search-button:focus {
-  color: #319df6;
-  outline: none;
 }
