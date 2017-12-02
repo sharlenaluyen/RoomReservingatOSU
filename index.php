@@ -31,19 +31,17 @@
           <li class="navitem navlink active"><a href="#">Home</a></li>
 	  <?php
 		if($_SESSION["usr"] == ""){
-	  		echo "<li class='navitem navlink'><a href='loginStuff/signUp.php'>Account</a></li>";
+	  		echo "<li class='navitem navlink'><a href='loginStuff/signUp.php'>My Account</a></li>";
 		}
 		else{
-			echo "<li class='navitem navlink'><a href='loginStuff/account.php'>Account</a></li>";
+			echo "<li class='navitem navlink'><a href='loginStuff/account.php'>My Account</a></li>";
+		
+			echo "<li class='navitem navlink'><a href='studySpace/reserve.php'>Find a Study Space</a></li>";
+
+			echo "<li class='navitem navlink'><a href='down.html'>Edit a Study Space</a></li>";
 		}
 	  ?>
-          <li class="navitem navlink"><a href="studyspace.php">Find a Study Space</a></li>
-          <li class="navitem navlink"><a href="down.html">Edit a Study Space</a></li>
           <li class="navitem navlink"><a href="aboutUs.php">About Us</a></li>
-          <li class="navitem navbar-search">
-            <input type="text" id="navbar-search-input" placeholder="Search...">
-            <button type="button" id="navbar-search-button"><i class="fa fa-search"></i></button>
-          </li>
         </ul>
       </nav>
     </header>

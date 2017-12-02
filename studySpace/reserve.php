@@ -1,3 +1,73 @@
+<?php
+	session_start();
+	if ($_SESSION["usr"] == ""){
+		header("Location: ../index.php");
+	}
+	$onid = $_SESSION["onid"];
+	
+	function draw_calendar($month,$year){
+
+	/* draw table */
+	$calendar = '<table cellpadding="0" cellspacing="0" class="calendar">';
+
+	/* table headings */
+	$headings = array('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday');
+	$calendar.= '<tr class="calendar-row"><td class="calendar-day-head">'.implode('</td><td class="calendar-day-head">',$headings).'</td></tr>';
+
+	/* days and weeks vars now ... */
+	$running_day = date('w',mktime(0,0,0,$month,1,$year));
+	$days_in_month = date('t',mktime(0,0,0,$month,1,$year));
+	$days_in_this_week = 1;
+	$day_counter = 0;
+	$dates_array = array();
+
+	/* row for week one */
+	$calendar.= '<tr class="calendar-row">';
+
+	/* print "blank" days until the first of the current week */
+	for($x = 0; $x < $running_day; $x++):
+		$calendar.= '<td class="calendar-day-np"> </td>';
+		$days_in_this_week++;
+	endfor;
+
+	/* keep going with days.... */
+	for($list_day = 1; $list_day <= $days_in_month; $list_day++):
+		$calendar.= '<td class="calendar-day">';
+			/* add in the day number */
+			$calendar.= '<div class="day-number">'.$list_day.'</div>';
+
+			/** QUERY THE DATABASE FOR AN ENTRY FOR THIS DAY !!  IF MATCHES FOUND, PRINT THEM !! **/
+			$calendar.= str_repeat('<p> </p>',2);
+			
+		$calendar.= '</td>';
+		if($running_day == 6):
+			$calendar.= '</tr>';
+			if(($day_counter+1) != $days_in_month):
+				$calendar.= '<tr class="calendar-row">';
+			endif;
+			$running_day = -1;
+			$days_in_this_week = 0;
+		endif;
+		$days_in_this_week++; $running_day++; $day_counter++;
+	endfor;
+
+	/* finish the rest of the days in the week */
+	if($days_in_this_week < 8):
+		for($x = 1; $x <= (8 - $days_in_this_week); $x++):
+			$calendar.= '<td class="calendar-day-np"> </td>';
+		endfor;
+	endif;
+
+	/* final row */
+	$calendar.= '</tr>';
+
+	/* end the table */
+	$calendar.= '</table>';
+	
+	/* all done, return result */
+	return $calendar;
+}
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -5,7 +75,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="css/calendar.css"/>
+    <link rel="stylesheet" href="css/master.css">
 
     <title>Starter Template for Bootstrap</title>
 
@@ -54,12 +125,48 @@
     <main role="main" class="container">
 
       <div class="starter-template">
-        <h1>Bootstrap starter template</h1>
-        <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+      	<?php
+	echo "'<h2>Dec 2017</h2>'";
+	echo "<div style='margin-left:100px'>" . draw_calendar(12,2017) . "</div>";
+	include '../connectvarsEECS.php'; 
+	
+	$conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+	if (!$conn) {
+		die('Could not connect: ' . mysql_error());
+	}
+
+	$query = "SELECT * FROM Project_Reservation
+			WHERE OSU_ID IN
+			(SELECT OSU_ID FROM Project_Calendar
+			UNION
+			SELECT OSU_ID FROM Project_Reservation 
+			NATURAL JOIN Project_Users) AND OSU_ID = '$onid'";
+
+	$result = mysqli_query($conn, $query);
+	
+	echo "<div class='reservation-box'>";
+	echo "<h1>Reservations</h1>";
+	echo "<table id='reservation'>
+	<tr>
+	  <th>Calendar ID</th>
+	  <th>Start Time</th>
+	  <th>End Time</th>
+	</tr>";
+	
+	while ($row = mysqli_fetch_assoc($result)){
+		echo "<tr>";
+		echo "<td>" . $row['Calendar_ID'] . "</td>";
+		echo "<td>" . $row['Start_Time'] . "</td>";
+		echo "<td>" . $row['End_Time'] . "</td>";
+		echo "</tr>";
+	}
+	
+	echo "</table>";
+	echo "</div>";
+	?>   
       </div>
-
+	
     </main><!-- /.container -->
-
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -70,4 +177,3 @@
     <script src="../../../../dist/js/bootstrap.min.js"></script>
   </body>
 </html>
-

@@ -1,6 +1,127 @@
 body{
   background:#292931;
+  font-family: 'Bree Serif'; 
+  font-size: 32px;
+  margin: 0;
+  text-align: center;
 }
+
+.navbar {
+  background-color: #fff;
+  font-size: 18px;
+  line-height: 35px;
+  text-align: center;
+}
+
+.navlist {
+  margin: 0 0 0 20px;
+  padding: 0;
+  text-align: center;
+}
+
+.navitem {
+  display: inline-block;
+}
+
+a {
+  font-family: 'Pacifico'; font-size: 24px;
+  text-decoration: none;
+  color: #343434;
+}
+
+a:hover,
+a:focus {
+  color: #319df6;
+}
+
+a:focus {
+  outline: none;
+}
+
+
+.site-title{
+  font-size: 36px;
+  color: white;
+  background-color:#b4a7d6ff;
+  text-align: center;
+  padding: 10px;
+  margin: 0;
+}
+
+.page-title {
+  margin: 0;
+  padding: 10px 20px;
+  font-size: 30px;
+  font-weight: 100;
+  background-color: #286da8;
+  color: #fff;
+  border: 3px solid #1e496b;
+  text-align: center;
+}
+
+.navlink a {
+  padding: 8px 10px;
+  display: inline-block;
+}
+
+.navlink.active {
+  box-shadow: inset 0 -3px #319df6;
+}
+
+.box-container {
+  margin: 50px 10%;
+  display: flex;
+  flex-wrap: wrap;
+  font-family: 'Bree Serif'; font-size: 32px;
+  margin: 0;
+  background-color: #f0f0f0;
+}
+
+.optionsboxes {
+  flex: 1 10%;
+  display: flex;
+  margin: 2px;
+  padding: 5px;
+  color: #FFF;
+  text-align: center;
+}
+
+#account {
+  background-color: ##c9daf8ff;
+  border-color: #8e7cc3ff;
+}
+
+#find {
+  background-color: ##c9daf8ff;
+  border-color: #8e7cc3ff;
+}
+
+#edit {
+  background-color: ##c9daf8ff;
+  border-color: #8e7cc3ff;
+}
+
+#about {
+  background-color: ##c9daf8ff;
+  border-color: #8e7cc3ff;
+}
+
+.thebuttons {
+  font-size: 30px;
+  border-radius: 10%;
+  padding: 20px;
+  border-width: thick;
+}
+
+.thebuttons:hover{
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+
 #signUp{
   position:absolute;
   top:50%;
@@ -10,13 +131,15 @@ body{
 #signUp h2{
   text-align:center;
   color:white;
-  font-family:sans-serif;
+  font-family: 'Bree Serif'; 
+  
   font-size:35px;
 }
 #signUp h1{
   text-align:center;
   color:white;
-  font-family:sans-serif;
+  font-family: 'Bree Serif'; 
+  
   font-size:20px;
 }
 #signUp input{
@@ -25,7 +148,8 @@ body{
   height:40px;
   padding:10px;
   font-size:14px;
-  font-family:sans-serif;
+  font-family: sans-serif;  
+
   color:white;
   background:rgba(0,0,0,0.3);
   outline:none;
