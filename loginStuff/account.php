@@ -4,6 +4,16 @@
 <!doctype html>
 <html lang="en">
   <head>
+  <link href= "https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+
+    <link href = "https://fonts.googleapis.com/css?family=BreeSerif" rel = "stylesheet">
+
+    <link rel="stylesheet" href="index.css" media="screen">
+
+    <meta charset="utf-8">
+    <title>Room Reservation</title>
+    <link rel="stylesheet" href="index.css" media="screen">
+
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
@@ -17,9 +27,38 @@
 
     <!-- Custom styles for this template -->
     <link href="css/cover.css" rel="stylesheet">
+    <link rel="stylesheet" href="index.css" media="screen">
   </head>
 
   <body>
+
+  <header>
+      <a href="../index.php"><h1 class="site-title"><i class=""></i>Reserve a Room on OSU's Campus</h1></a>
+
+      <nav class="navbar">
+  <ul class="navlist">
+    <?php
+       if ($_SESSION["usr"] != ""){
+        echo "<li class='navitem navlink'><a>Logged in as " . $_SESSION["usr"] . "</a></li>"; //href='#'
+       }
+    ?>
+          <li class="navitem navlink active"><a href="#">Home</a></li>
+    <?php
+    if($_SESSION["usr"] == ""){
+        echo "<li class='navitem navlink'><a href='loginStuff/signUp.php'>My Account</a></li>";
+    }
+    else{
+      echo "<li class='navitem navlink'><a href='loginStuff/account.php'>My Account</a></li>";
+    
+      echo "<li class='navitem navlink'><a href='studySpace/reserve.php'>Find a Study Space</a></li>";
+
+      echo "<li class='navitem navlink'><a href='down.html'>Edit a Study Space</a></li>";
+    }
+    ?>
+          <li class="navitem navlink"><a href="aboutUs.php">About Us</a></li>
+        </ul>
+      </nav>
+    </header>
 
     <div class="site-wrapper">
 
@@ -33,9 +72,9 @@
 		echo "<h3 class='masthead-brand'>Username: " . $_SESSION["usr"] . "</h3>"; 
 	  ?>
               <nav class="nav nav-masthead">
-                <a class="nav-link active" href="../index.php">Home</a>
-                <a class="nav-link" href="userSettings.php">Settings</a>
-                <a class="nav-link" href="signOut.php">Sign Out</a>
+                <a class="navv-link active" href="../index.php">Home</a>
+                <a class="navv-link" href="userSettings.php">Settings</a>
+                <a class="navv-link" href="signOut.php">Sign Out</a>
               </nav>
             </div>
           </header>
