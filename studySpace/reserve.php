@@ -135,12 +135,11 @@
 		die('Could not connect: ' . mysql_error());
 	}
 
-	$query = "SELECT * FROM Project_Reservation
-			WHERE OSU_ID IN
-			(SELECT OSU_ID FROM Project_Calendar
-			UNION
-			SELECT OSU_ID FROM Project_Reservation 
-			NATURAL JOIN Project_Users) AND OSU_ID = '$onid'";
+	$query = "SELECT Start_Time, End_Time, Date 
+			FROM Project_Reservation R
+			NATURAL JOIN Project_Users U
+			NATURAL JOIN Project_Calendar C
+			WHERE R.OSU_ID = U.OSU_ID AND R.Calendar_ID = C.Calendar_D AND R.OSU_ID = '$onid'";
 
 	$result = mysqli_query($conn, $query);
 	
@@ -148,14 +147,14 @@
 	echo "<h1>Reservations</h1>";
 	echo "<table id='reservation'>
 	<tr>
-	  <th>Calendar ID</th>
+	  <th>Date</th>
 	  <th>Start Time</th>
 	  <th>End Time</th>
 	</tr>";
 	
 	while ($row = mysqli_fetch_assoc($result)){
 		echo "<tr>";
-		echo "<td>" . $row['Calendar_ID'] . "</td>";
+		echo "<td>" . $row['Date'] . "</td>";
 		echo "<td>" . $row['Start_Time'] . "</td>";
 		echo "<td>" . $row['End_Time'] . "</td>";
 		echo "</tr>";
