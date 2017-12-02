@@ -3,7 +3,8 @@
 	if ($_SESSION["usr"] == ""){
 		header("Location: ../index.php");
 	}
-
+	$onid = $_SESSION["onid"];
+	
 	function draw_calendar($month,$year){
 
 	/* draw table */
@@ -75,7 +76,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="stylesheet" href="css/calendar.css"/>
-    <link rel="icon" href="../../../../favicon.ico">
+    <link rel="stylesheet" href="css/master.css">
 
     <title>Starter Template for Bootstrap</title>
 
@@ -127,7 +128,42 @@
       	<?php
 	echo "'<h2>Dec 2017</h2>'";
 	echo "<div style='margin-left:100px'>" . draw_calendar(12,2017) . "</div>";
-	?>    
+	include '../connectvarsEECS.php'; 
+	
+	$conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
+	if (!$conn) {
+		die('Could not connect: ' . mysql_error());
+	}
+
+	$query = "SELECT * FROM Project_Reservation
+			WHERE OSU_ID IN
+			(SELECT OSU_ID FROM Project_Calender
+			UNION
+			SELECT OSU_ID FROM Project_Reservation 
+			NATURAL JOIN Project_Users) AND OSU_ID = '$onid'";
+
+	$result = mysqli_query($conn, $query);
+	
+	echo "<div class='reservation-box'>";
+	echo "<h1>Reservations</h1>";
+	echo "<table id='reservation'>
+	<tr>
+	  <th>Calendar ID</th>
+	  <th>Start Time</th>
+	  <th>End Time</th>
+	</tr>";
+	
+	while ($row = mysqli_fetch_assoc($result)){
+		echo "<tr>";
+		echo "<td>" . $row['Calendar_ID'] . "</td>";
+		echo "<td>" . $row['Start_Time'] . "</td>";
+		echo "<td>" . $row['End_Time'] . "</td>";
+		echo "</tr>";
+	}
+	
+	echo "</table>";
+	echo "</div>";
+	?>   
       </div>
 	
     </main><!-- /.container -->
