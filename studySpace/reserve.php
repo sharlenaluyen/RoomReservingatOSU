@@ -33,7 +33,7 @@
 	/* keep going with days.... */
 	$day_count = 1;
 	for($list_day = 1; $list_day <= $days_in_month; $list_day++):	
-		$calendar.= '<td class="calendar-day" id='. $day_count++ .' onclick="document.getElementById(\'id01\').style.display=\'block\'" onclick="reply_click(this.id)">';
+		$calendar.= '<td class="calendar-day" id='. $day_count++ .' onclick="document.getElementById(\'id01\').style.display=\'block\'">';
 			/* add in the day number */
 			$calendar.= '<div class="day-number">'.$list_day.'</div>';
 
@@ -88,7 +88,6 @@
     <!-- Custom styles for this template -->
     <link href="css/starter-template.css" rel="stylesheet">
   </head>
-
   <body>
 
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
@@ -170,26 +169,21 @@
       </div>
     </main><!-- /.container -->
 <div id="id01" class="modal">
-  
   <form class="modal-content animate" action="action_page.php" method="post">
+   <h1 id="clickedDate"></h1>  
     <div class="container">
-      <label><b>Username</b></label>
-      <input type="text" placeholder="Enter Username" name="uname" required>
-
-      <label><b>Password</b></label>
-      <input type="password" placeholder="Enter Password" name="psw" required>
-        
-      <button type="submit">Login</button>
-      <input type="checkbox" checked="checked"> Remember me
+      <label><b>Start Time</b></label>
+      <input type="time">
+      <label><b>End Time</b></label>
+      <input type="time">
+      <button type="submit" class="sub_btn">Reserve</button>
     </div>
 
     <div class="container" style="background-color:#f1f1f1">
       <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-      <span class="psw">Forgot <a href="#">password?</a></span>
     </div>
   </form>
 </div>
-
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
@@ -204,14 +198,14 @@
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
     if (event.target == modal) {
-        modal.style.display = "none";
+	    modal.style.display = "none";
     }
 }
 </script>
 <script type="text/javascript">
-    function reply_click(clicked_id){
-	alert(clicked_id);
-    }
+	$(".calendar-day").click(function(){ 
+		document.getElementById("clickedDate").innerHTML = "Day: " + this.id;
+	});
 </script>
   </body>
 </html>
