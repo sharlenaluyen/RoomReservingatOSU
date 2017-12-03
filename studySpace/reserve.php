@@ -31,8 +31,9 @@
 	endfor;
 
 	/* keep going with days.... */
-	for($list_day = 1; $list_day <= $days_in_month; $list_day++):
-		$calendar.= '<td class="calendar-day">';
+	$day_count = 1;
+	for($list_day = 1; $list_day <= $days_in_month; $list_day++):	
+		$calendar.= '<td class="calendar-day" id='. $day_count++ .' onclick="document.getElementById(\'id01\').style.display=\'block\'" onclick="reply_click(this.id)">';
 			/* add in the day number */
 			$calendar.= '<div class="day-number">'.$list_day.'</div>';
 
@@ -77,6 +78,7 @@
     <meta name="author" content="">
     <link rel="stylesheet" href="css/calendar.css"/>
     <link rel="stylesheet" href="css/master.css">
+    <link rel="stylesheet" href="css/popbox.css"/>
 
     <title>Starter Template for Bootstrap</title>
 
@@ -135,11 +137,12 @@
 		die('Could not connect: ' . mysql_error());
 	}
 
-	$query = "SELECT Start_Time, End_Time, Date 
-			FROM Project_Reservation R
-			NATURAL JOIN Project_Users U
-			NATURAL JOIN Project_Calendar C
-			WHERE R.OSU_ID = U.OSU_ID AND R.Calendar_ID = C.Calendar_D AND R.OSU_ID = '$onid'";
+	$query = "SELECT * FROM Project_Reservation
+			WHERE OSU_ID IN
+			(SELECT OSU_ID FROM Project_Calendar
+			UNION
+			SELECT OSU_ID FROM Project_Reservation 
+			NATURAL JOIN Project_Users) AND OSU_ID = '$onid'";
 
 	$result = mysqli_query($conn, $query);
 	
@@ -156,7 +159,8 @@
 		echo "<tr>";
 		echo "<td>" . $row['Date'] . "</td>";
 		echo "<td>" . $row['Start_Time'] . "</td>";
-		echo "<td>" . $row['End_Time'] . "</td>";
+		echo "<td>". $row['End_Time'] . "</td>";
+		echo "<td><a href='../index.php'>Edit</a></td>";
 		echo "</tr>";
 	}
 	
@@ -164,8 +168,27 @@
 	echo "</div>";
 	?>   
       </div>
-	
     </main><!-- /.container -->
+<div id="id01" class="modal">
+  
+  <form class="modal-content animate" action="action_page.php" method="post">
+    <div class="container">
+      <label><b>Username</b></label>
+      <input type="text" placeholder="Enter Username" name="uname" required>
+
+      <label><b>Password</b></label>
+      <input type="password" placeholder="Enter Password" name="psw" required>
+        
+      <button type="submit">Login</button>
+      <input type="checkbox" checked="checked"> Remember me
+    </div>
+
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+  </form>
+</div>
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -174,5 +197,21 @@
     <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery.min.js"><\/script>')</script>
     <script src="../../../../assets/js/vendor/popper.min.js"></script>
     <script src="../../../../dist/js/bootstrap.min.js"></script>
+<script>
+    // Get the modal
+    var modal = document.getElementById('id01');
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
+}
+</script>
+<script type="text/javascript">
+    function reply_click(clicked_id){
+	alert(clicked_id);
+    }
+</script>
   </body>
 </html>
