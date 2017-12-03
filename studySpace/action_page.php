@@ -12,38 +12,32 @@
 	$startTime = mysqli_real_escape_string($conn, $_POST['sTime']);
 	$endTime = mysqli_real_escape_string($conn, $_POST['eTime']);
 	$date = mysqli_real_escape_string($conn, $_POST['cday']);
+	$roomId = 0;
 	$onid = $_SESSION["onid"];
 
-/*
-// qurery = looks for a sUsername in the Users table 
-	$query = "SELECT * FROM `Project_Users` WHERE Username = '$user'";// 'useris unique
-	$result = mysqli_query($conn, $query);// Return the results of the crery
-	// Look at individual cell da	ta. Should check if query faild, howev cin this 
-	// instance it will not fail. data is eather there or not.c
+	for($i = 6; $i < 9 ; $i++){
+		$calId[$i] = $onid[$i];
+	}
 
-	$row = mysqli_fetch_assoc($result);// Brakes the qurery into one ro
-					// Lets use get access to each cell in the row
-	$salt = $row["salt"];// Get data from the salt column
-	$dbPass = $row["Password"];// Get data from the sPassword column
-	$ONID = $row["OSU_ID"];
-	
-	$pass = md5($pass . $salt);
-	// If statment checks if hashed password is the same password in the database
-	if ($pass == $dbPass){
-		$_SESSION["usr"] = $user;
-		$_SESSION["onid"] = $ONID;
-		header("Location: ../index.php");
+	$calId = implode("", $calId);// Array to string
+	$tag = rand(100,999); // Fix this, could lead to same calendar ID's
+	$calId .= $tag;
+	$query_cal = "INSERT INTO Project_Calendar (Calendar_ID, Room_ID, OSU_ID) VALUES ('$calId', '$roomId', '$onid')";
+	if (mysqli_query($conn, $query_cal)){
+
+		$query_res = "INSERT INTO Project_Reservation (OSU_ID, Calendar_ID, Start_Time, End_Time, Date) VALUES ('$onid', '$calId', '$startTime', '$endTime', '$date')";
+		if (mysqli_query($conn, $query_res)){
+			header("Location: reserve.php");
+		}
+		else{
+			echo "<div>ERROR: " . mysqli_error($conn) ."</div><a href='signUp.php' class='back_button'>Back</a> ";
+		}
 	}
 	else{
-		echo "Username/Password not found";
-		echo "<p>Try again?</p>";
-		echo "<form action='signUp.php' method='post'>";
-		echo "<input type='submit' value='Back'>";
+		echo "<div>ERROR: " . mysqli_error($conn) ."</div><a href='signUp.php' class='back_button'>Back</a> ";
 	}
-// Free results
-mysqli_free_result($row);
-// close connection
-*/mysqli_close($conn);
+
+	mysqli_close($conn);
 ?>
 
 </body>

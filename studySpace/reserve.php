@@ -12,7 +12,7 @@
 
 	/* table headings */
 	$headings = array('Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday');
-	$calendar.= '<tr class="calendar-row"><td class="calendar-day-head">'.implode('</td><td class="calendar-day-head">',$headings).'</td></tr>';
+	$calendar.= '<tr class="calendar-row"><td class="calendar-day-head">'.implode('</td><td class="calendar-day-head">', $headings).'</td></tr>';
 
 	/* days and weeks vars now ... */
 	$running_day = date('w',mktime(0,0,0,$month,1,$year));
@@ -31,8 +31,9 @@
 	endfor;
 
 	/* keep going with days.... */
-	for($list_day = 1; $list_day <= $days_in_month; $list_day++):
-		$calendar.= '<td class="calendar-day">';
+	$day_count = 1;
+	for($list_day = 1; $list_day <= $days_in_month; $list_day++):	
+		$calendar.= '<td class="calendar-day" id='. $day_count++ .' onclick="document.getElementById(\'id01\').style.display=\'block\'">';
 			/* add in the day number */
 			$calendar.= '<div class="day-number">'.$list_day.'</div>';
 
@@ -77,6 +78,7 @@
     <meta name="author" content="">
     <link rel="stylesheet" href="css/calendar.css"/>
     <link rel="stylesheet" href="css/master.css">
+    <link rel="stylesheet" href="css/popbox.css"/>
 
     <title>Starter Template for Bootstrap</title>
 
@@ -86,7 +88,6 @@
     <!-- Custom styles for this template -->
     <link href="css/starter-template.css" rel="stylesheet">
   </head>
-
   <body>
 
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
@@ -148,16 +149,17 @@
 	echo "<h1>Reservations</h1>";
 	echo "<table id='reservation'>
 	<tr>
-	  <th>Calendar ID</th>
+	  <th>Date</th>
 	  <th>Start Time</th>
 	  <th>End Time</th>
 	</tr>";
 	
 	while ($row = mysqli_fetch_assoc($result)){
 		echo "<tr>";
-		echo "<td>" . $row['Calendar_ID'] . "</td>";
+		echo "<td>" . $row['Date'] . "</td>";
 		echo "<td>" . $row['Start_Time'] . "</td>";
-		echo "<td>" . $row['End_Time'] . "</td>";
+		echo "<td>". $row['End_Time'] . "</td>";
+		echo "<td><a href='../index.php'>Edit</a></td>";
 		echo "</tr>";
 	}
 	
@@ -165,9 +167,26 @@
 	echo "</div>";
 	?>   
       </div>
-	
     </main><!-- /.container -->
+<div id="id01" class="modal">
+  <form class="modal-content animate" action="action_page.php" method="post">
+   <h1 id="clickedDate"></h1>  
+    <div class="container">
+      <label><b>Start Time</b></label>
+      <input type="time" for="sTime" name="sTime" id="sTime">
+      <label><b>End Time</b></label>
+      <input type="time"for="eTime" name="eTime" id="eTime">
+      <br></br>
+      <label><b>Date</b></label>
+      <input type="date" id="cday" for="cday" name="cday" >
+      <button type="submit" class="sub_btn">Reserve</button>
+    </div>
 
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+    </div>
+  </form>
+</div>
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
@@ -175,5 +194,30 @@
     <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery.min.js"><\/script>')</script>
     <script src="../../../../assets/js/vendor/popper.min.js"></script>
     <script src="../../../../dist/js/bootstrap.min.js"></script>
+<script>
+    // Get the modal
+    var modal = document.getElementById('id01');
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+    if (event.target == modal) {
+	    modal.style.display = "none";
+    }
+}
+</script>
+<script type="text/javascript">
+	$(".calendar-day").click(function(){ 
+		var day = this.id;
+		document.getElementById("clickedDate").innerHTML = "Day: " + day;
+
+		if (day > 9){
+			document.getElementById("cday").value = "2017-12-" + day;
+		}
+		else{
+			day = "0" + day;
+			document.getElementById("cday").value = "2017-12-" + day;
+		}	
+	});
+</script>
   </body>
 </html>
