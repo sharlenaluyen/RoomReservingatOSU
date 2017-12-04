@@ -2,7 +2,7 @@ body {
   font-family: 'Bree Serif'; font-size: 32px;
   text-shadow: 0 .05rem .1rem rgba(0,0,0,.5);
   margin: 0;
-  background-color: #f0f0f0;
+  background-color: #ffffff;
   text-align: center;
 }
 
@@ -11,6 +11,9 @@ body {
   font-size: 18px;
   line-height: 35px;
   text-align: center;
+  border-bottom:2px solid;
+  border-top:2px solid;
+  padding-bottom:10px;
 }
 
 .navlist {
@@ -22,32 +25,6 @@ body {
 .navitem {
   display: inline-block;
 }
-
-.videowrapper video {
-    width: 100% !important;
-    height: 100% !important;
-    position: relative;
-    top: 0;
-    left: 0;
-    text-align: center;
-    overflow: hidden;
-    overflow-y: hidden;
-}
-
-audio, canvas, progress, video {
-    display: center;
-}
-/*    object-fit: contain;
-}
-@media (min-width: 1500px)
-.bignumber {
-    font-size: 400px;
-}
-@media (min-width: 992px)
-.bignumber {
-}*/
-
-
 
 a {
   font-family: 'Pacifico'; font-size: 24px;
@@ -98,6 +75,14 @@ a:focus {
 .navlink .active {
   box-shadow: inset 0 -3px #319df6;
   border-bottom-color: #fff;
+}
+
+.updateFont {
+  font-family: 'Bree Serif'; font-size: 12px;
+  text-shadow: 0 .05rem .1rem rgba(0,0,0,.5);
+  margin: 0;
+  background-color: #ffffff;
+  text-align: center;
 }
 
 .box-container {
