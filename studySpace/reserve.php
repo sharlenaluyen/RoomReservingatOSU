@@ -4,7 +4,7 @@
 		header("Location: ../index.php");
 	}
 	$onid = $_SESSION["onid"];
-	
+
 	function draw_calendar($month,$year){
 
 	/* draw table */
@@ -32,14 +32,14 @@
 
 	/* keep going with days.... */
 	$day_count = 1;
-	for($list_day = 1; $list_day <= $days_in_month; $list_day++):	
+	for($list_day = 1; $list_day <= $days_in_month; $list_day++):
 		$calendar.= '<td class="calendar-day" id='. $day_count++ .' onclick="document.getElementById(\'id01\').style.display=\'block\'">';
 			/* add in the day number */
 			$calendar.= '<div class="day-number">'.$list_day.'</div>';
 
 			/** QUERY THE DATABASE FOR AN ENTRY FOR THIS DAY !!  IF MATCHES FOUND, PRINT THEM !! **/
 			$calendar.= str_repeat('<p> </p>',2);
-			
+
 		$calendar.= '</td>';
 		if($running_day == 6):
 			$calendar.= '</tr>';
@@ -64,73 +64,66 @@
 
 	/* end the table */
 	$calendar.= '</table>';
-	
+
 	/* all done, return result */
 	return $calendar;
 }
 ?>
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="stylesheet" href="css/calendar.css"/>
-    <link rel="stylesheet" href="css/master.css">
-    <link rel="stylesheet" href="css/popbox.css"/>
+<head>
 
-    <title>Starter Template for Bootstrap</title>
+	<link href= "https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
+	<link href = "https://fonts.googleapis.com/css?family=BreeSerif" rel = "stylesheet">
 
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="../studySpace/css/reserve.css"/>
+	<link rel="stylesheet" href="../studySpace/css/calendar.css"/>
+	<link rel="stylesheet" href="../studySpace/css/master.css">
+	<link rel="stylesheet" href="../studySpace/css/popbox.css"/>
 
-    <!-- Custom styles for this template -->
-    <link href="css/starter-template.css" rel="stylesheet">
-  </head>
-  <body>
+	<meta charset="utf-8">
+	<title>Reserve a Study Space</title>
+	<link rel="stylesheet" href="../studySpace/css/reserve.css"/>
 
-    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-      <a class="navbar-brand" href="#">Navbar</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+</head>
 
-      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-        <ul class="navbar-nav mr-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="../index.php">Home <span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Link</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#">Disabled</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-            <div class="dropdown-menu" aria-labelledby="dropdown01">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </li>
-        </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
-      </div>
-    </nav>
+<body>
+	<header>
+		<a href="../studySpace/reserve.php"><h1 class="site-title"><i class=""></i>Find a Study Space</h1></a>
 
-    <main role="main" class="container">
+		<nav class="navbar">
+		<ul class="navlist">
+		<?php
+			if ($_SESSION["usr"] != ""){
+				echo "<li class='navitem navlink'><a>Logged in as " . $_SESSION["usr"] . "</a></li>"; //href='#'
+		 	}
+		?>
 
-      <div class="starter-template">
+		<li class="navitem navlink"><a href="../index.php">Home</a></li>
+		<?php
+			if($_SESSION["usr"] == ""){
+				echo "<li class='navitem navlink'><a href='../loginStuff/signUp.php'>My Account</a></li>";
+			}
+			else{
+				echo "<li class='navitem navlink'><a href='../loginStuff/account.php'>My Account</a></li>";
+
+				//echo "<li class='navitem navlink active'><a href='../studySpace/reserve.php'>Find a Study Space</a></li>";
+			}
+			?>
+
+		 <li class="navitem navlink"><a href="../aboutUs.php">About Us</a></li>
+		</ul>
+		</nav>
+	</header>
+
+<div class ="updateFont">
       	<?php
-	echo "'<h2>Dec 2017</h2>'";
+	echo "'<h2>December 2017</h2>'";
 	echo "<div style='margin-left:100px'>" . draw_calendar(12,2017) . "</div>";
-	include '../connectvarsEECS.php'; 
-	
+	echo "\n\n\n\n\n";
+
+	include '../connectvarsEECS.php';
+
 	$conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 	if (!$conn) {
 		die('Could not connect: ' . mysql_error());
@@ -140,11 +133,14 @@
 			WHERE OSU_ID IN
 			(SELECT OSU_ID FROM Project_Calendar
 			UNION
-			SELECT OSU_ID FROM Project_Reservation 
+			SELECT OSU_ID FROM Project_Reservation
 			NATURAL JOIN Project_Users) AND OSU_ID = '$onid'";
 
 	$result = mysqli_query($conn, $query);
-	
+
+  //echo "<div class='reservation-title'>";
+	//echo "<h1>Reservations</h1>";
+	//echo "</div>";
 	echo "<div class='reservation-box'>";
 	echo "<h1>Reservations</h1>";
 	echo "<table id='reservation'>
@@ -153,7 +149,7 @@
 	  <th>Start Time</th>
 	  <th>End Time</th>
 	</tr>";
-	
+
 	while ($row = mysqli_fetch_assoc($result)){
 		echo "<tr>";
 		echo "<td>" . $row['Date'] . "</td>";
@@ -162,15 +158,15 @@
 		echo "<td><a href='../index.php'>Edit</a></td>";
 		echo "</tr>";
 	}
-	
+
 	echo "</table>";
 	echo "</div>";
-	?>   
-      </div>
+	?>
+</div>
     </main><!-- /.container -->
 <div id="id01" class="modal">
   <form class="modal-content animate" action="action_page.php" method="post">
-   <h1 id="clickedDate"></h1>  
+   <h1 id="clickedDate"></h1>
     <div class="container">
       <label><b>Start Time</b></label>
       <input type="time" for="sTime" name="sTime" id="sTime">
@@ -206,7 +202,7 @@
 }
 </script>
 <script type="text/javascript">
-	$(".calendar-day").click(function(){ 
+	$(".calendar-day").click(function(){
 		var day = this.id;
 		document.getElementById("clickedDate").innerHTML = "Day: " + day;
 
@@ -216,7 +212,7 @@
 		else{
 			day = "0" + day;
 			document.getElementById("cday").value = "2017-12-" + day;
-		}	
+		}
 	});
 </script>
   </body>

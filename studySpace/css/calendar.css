@@ -1,4 +1,8 @@
-table.calendar		{ border-left:1px solid #999; }
+table.calendar
+{
+  border-left:1px solid #999;
+
+}
 tr.calendar-row	{  }
 td.calendar-day	{ min-height:80px; font-size:11px; position:relative; } * html div.calendar-day { height:80px; }
 td.calendar-day:hover	{ background:#eceff5; }
