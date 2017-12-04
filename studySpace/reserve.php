@@ -152,11 +152,12 @@
 
 	while ($row = mysqli_fetch_assoc($result)){
 		echo "<tr>";
-		echo "<td>" . $row['Date'] . "</td>";
-		echo "<td>" . $row['Start_Time'] . "</td>";
-		echo "<td>". $row['End_Time'] . "</td>";
-		echo "<td><a href='../index.php'>Edit</a></td>";
+		echo "<td id=". $row['Calendar_ID'] . "-Date" . ">" . $row['Date'] . "</td>";
+		echo "<td id=". $row['Calendar_ID'] . "-StrT" . ">" . $row['Start_Time'] . "</td>";
+		echo "<td id=". $row['Calendar_ID'] . "-EndT" . ">". $row['End_Time'] . "</td>";
+		echo "<td><button id=". $row['Calendar_ID'] ." onclick='document.getElementById(\"id02\").style.display=\"block\"' class='edit_btn' type='submit'>Edit</buton>";
 		echo "</tr>";
+
 	}
 
 	echo "</table>";
@@ -183,6 +184,26 @@
     </div>
   </form>
 </div>
+
+<div id="id02" class="modal">
+  <form class="modal-content animate" action="action_page.php" method="post">  
+   <h1 id="clickedDate"></h1>
+    <div class="container">
+    <label><b>Start Time</b></label>
+      <input type="time" for="sTimeMod" name="sTimeMod" id="sTimeMod">
+      <label><b>End Time</b></label>
+      <input type="time"for="eTimeMod" name="eTimeMod" id="eTimeMod">
+      <br></br>
+      <label><b>Date</b></label>
+      <input type="date" id="cdayMod" for="cdayMod" name="cdayMod" >
+      <button type="submit" class="sub_btn">Update</button>
+    </div>
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
+    </div>
+  </form>
+</div>
+
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
@@ -192,17 +213,20 @@
     <script src="../../../../dist/js/bootstrap.min.js"></script>
 <script>
     // Get the modal
-    var modal = document.getElementById('id01');
-
+    var modal1 = document.getElementById('id01');
+    var modal2 = document.getElementById('id02');
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
-    if (event.target == modal) {
+    if (event.target == modal1) {
 	    modal.style.display = "none";
+    }
+    if (event.target == modal2){
+	   modal.style.display = "none";
     }
 }
 </script>
-<script type="text/javascript">
-	$(".calendar-day").click(function(){
+<script type="application/javascript">
+	$(".calendar-day, .edit_btn").click(function(){ 
 		var day = this.id;
 		document.getElementById("clickedDate").innerHTML = "Day: " + day;
 
@@ -212,7 +236,19 @@
 		else{
 			day = "0" + day;
 			document.getElementById("cday").value = "2017-12-" + day;
-		}
+		}	
+	});
+</script>
+<script type="application/javascript">
+	$(".edit_btn").click(function(){ 
+		var editId = this.id;
+		var startT = document.getElementById(editId + "-StrT").innerHTML;
+		var endT = document.getElementById(editId + "-EndT").innerHTML;
+		var dateT = document.getElementById(editId + "-Date").innerHTML;
+
+		document.getElementById("sTimeMod").value = startT;
+		document.getElementById("eTimeMod").value = endT;
+		document.getElementById("cdayMod").value = dateT;
 	});
 </script>
   </body>
