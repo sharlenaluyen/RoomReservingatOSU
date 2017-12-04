@@ -42,6 +42,8 @@
       }
       ?>
           <li class="navitem navlink"><a href="../aboutUs.php">About Us</a></li>
+          <li class="navitem navlink"><a href="../loginStuff/signOut.php">Sign Out</a></li>
+
         </ul>
       </nav>
     </header>
