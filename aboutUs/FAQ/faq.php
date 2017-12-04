@@ -14,7 +14,7 @@
   </head>
   <body>
   <header>
-      <a href="../../index.php"><h1 class="site-title"><i class=""></i>About Us</h1></a>
+      <a href="../../index.php"><h1 class="site-title"><i class=""></i>Frequently Asked Questions</h1></a>
 
       <nav class="navbar">
         <ul class="navlist">
