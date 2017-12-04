@@ -27,14 +27,14 @@
         echo "<li class='navitem navlink'><a href='#'>Logged in as " . $_SESSION["usr"] . "</a></li>";
        }
     ?>
-          <li class="navitem navlink active"><a href="../index.php">Home</a></li>
+          <li class="navitem navlink"><a href="../index.php">Home</a></li>
     <?php
     if($_SESSION["usr"] == ""){
         echo "<li class='navitem navlink'><a href='signUp.php'>My Account</a></li>";
     }
     else{
       echo "<li class='navitem navlink'><a href='account.php'>My Account</a></li>";
-    
+
       echo "<li class='navitem navlink'><a href='studySpace/reserve.php'>Find a Study Space</a></li>";
 
       echo "<li class='navitem navlink'><a href='down.html'>Edit a Study Space</a></li>";
@@ -63,7 +63,7 @@
     </div>
     </div>
 <div id="id01" class="modal">
-  
+
   <form class="modal-content animate" action="action_page.php" method="post">
     <div class="container">
       <label><b>Username</b></label>
@@ -71,7 +71,7 @@
 
       <label><b>Password</b></label>
       <input type="password" placeholder="Enter Password" name="psw" required>
-        
+
       <button class="sub_btn" type="submit">Login</button>
       <input type="checkbox" checked="checked"> Remember me
     </div>

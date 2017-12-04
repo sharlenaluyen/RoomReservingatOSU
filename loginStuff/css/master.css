@@ -1,5 +1,5 @@
 body{
-  background:#ffffff;
+  background:#000;
   font-family: 'Bree Serif';
   font-size: 32px;
   margin: 0;
@@ -11,6 +11,8 @@ body{
   font-size: 18px;
   line-height: 35px;
   text-align: center;
+  border-bottom: 2px solid;
+
 }
 
 .navlist {
@@ -127,19 +129,18 @@ a:focus {
   top:50%;
   left:50%;
   transform:translate(-50%,-50%);
+
 }
 #signUp h2{
   text-align:center;
   color:white;
   font-family: 'Bree Serif';
-
   font-size:35px;
 }
 #signUp h1{
   text-align:center;
   color:white;
   font-family: 'Bree Serif';
-
   font-size:20px;
 }
 #signUp input{
