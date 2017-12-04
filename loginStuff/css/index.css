@@ -29,6 +29,14 @@ button:hover {
     opacity: 0.8;
 }
 
+.sub_btn{
+    width: 45%;
+    padding: 10px 18px;
+    background-color: #4CAF50;
+    margin-left:auto;
+    margin-right:auto;
+}
+
 /* Extra styles for the cancel button */
 .cancelbtn {
     width: auto;
@@ -77,7 +85,7 @@ span.psw {
     background-color: #fefefe;
     margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
     border: 1px solid #888;
-    width: 80%; /* Could be more or less, depending on screen size */
+    width: 30%; /* Could be more or less, depending on screen size */
 }
 
 /* The Close Button (x) */
