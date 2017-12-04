@@ -16,7 +16,7 @@
 
   <body>
     <header>
-      <a href="index.php"><h1 class="site-title"><i class=""></i>Reserve a Room on OSU's Campus</h1></a>
+      <a href="index.php"><h1 class="site-title"><i class=""></i>About Us</h1></a>
 
       <nav class="navbar">
         <ul class="navlist">
