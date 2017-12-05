@@ -186,7 +186,7 @@
 </div>
 
 <div id="id02" class="modal">
-  <form class="modal-content animate" action="action_page.php" method="post">  
+  <form class="modal-content animate" action="edit_page.php" method="post">  
    <h1 id="clickedDate"></h1>
     <div class="container">
     <label><b>Start Time</b></label>
@@ -196,6 +196,7 @@
       <br></br>
       <label><b>Date</b></label>
       <input type="date" id="cdayMod" for="cdayMod" name="cdayMod" >
+      <input type="hidden" id="calId" for="calId" name="calId">
       <button type="submit" class="sub_btn">Update</button>
     </div>
     <div class="container" style="background-color:#f1f1f1">
@@ -246,6 +247,7 @@
 		var endT = document.getElementById(editId + "-EndT").innerHTML;
 		var dateT = document.getElementById(editId + "-Date").innerHTML;
 
+		document.getElementById("calId").value = editId;
 		document.getElementById("sTimeMod").value = startT;
 		document.getElementById("eTimeMod").value = endT;
 		document.getElementById("cdayMod").value = dateT;
