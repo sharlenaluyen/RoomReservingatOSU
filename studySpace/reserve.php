@@ -155,7 +155,7 @@
 		echo "<td id=". $row['Calendar_ID'] . "-Date" . ">" . $row['Date'] . "</td>";
 		echo "<td id=". $row['Calendar_ID'] . "-StrT" . ">" . $row['Start_Time'] . "</td>";
 		echo "<td id=". $row['Calendar_ID'] . "-EndT" . ">". $row['End_Time'] . "</td>";
-		echo "<td><button id=". $row['Calendar_ID'] ." onclick='document.getElementById(\"id02\").style.display=\"block\"' class='edit_btn' type='submit'>Edit</buton>";
+		echo "<td><button id=". $row['Calendar_ID'] ." onclick='document.getElementById(\"id02\").style.display=\"block\"' class='edit_btn' type='submit'>Edit</buton><button id=". $row['Calendar_ID'] ." onclick='document.getElementById(\"id03\").style.display=\"block\"' class='rm_btn' type='submit'>Remove</buton></td>";
 		echo "</tr>";
 
 	}
@@ -204,6 +204,19 @@
     </div>
   </form>
 </div>
+<div id="id03" class="modal">
+  <form class="modal-content animate" action="rm_reserve.php" method="post">  
+    <div class="container">
+    <label><b>Are you sure?</b></label>
+      <input type="hidden" id="calIdRm" for="calIdRm" name="calIdRm">
+      <button type="submit" class="sub_btn">Remove</button>
+    </div>
+    <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id03').style.display='none'" class="cancelbtn">Cancel</button>
+    </div>
+  </form>
+</div>
+
 
     <!-- Bootstrap core JavaScript
     ================================================== -->
@@ -216,6 +229,8 @@
     // Get the modal
     var modal1 = document.getElementById('id01');
     var modal2 = document.getElementById('id02');
+    var modal3 = document.getElementById('id03');
+
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
     if (event.target == modal1) {
@@ -223,6 +238,9 @@
     }
     if (event.target == modal2){
 	   modal.style.display = "none";
+    }
+    if (event.target == modal3){
+	    modal.style.display = "none";
     }
 }
 </script>
@@ -251,6 +269,12 @@
 		document.getElementById("sTimeMod").value = startT;
 		document.getElementById("eTimeMod").value = endT;
 		document.getElementById("cdayMod").value = dateT;
+	});
+</script>
+<script type="application/javascript">
+	$(".rm_btn").click(function(){ 
+		var rmId = this.id;
+		document.getElementById("calIdRm").value = rmId;
 	});
 </script>
   </body>

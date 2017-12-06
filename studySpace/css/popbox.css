@@ -37,12 +37,21 @@ button:hover {
     margin-right:auto;
 }
 
+.rm_btn{
+	width: 35%;
+	height: 20%;
+	padding: 0px;
+	margin: 10px;
+	background-color: #FF0000;
+	display: inline-block;
+}
+
 .edit_btn{
-	width: 50%;
+	width: 35%;
 	height: 20%;
 	padding: 0px;
 	background-color: #3377FF;
-
+	display: inline-block;
 }
 
 /* Extra styles for the cancel button */
