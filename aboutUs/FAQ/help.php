@@ -41,13 +41,6 @@
         <li class ="listone">Otherwise, you will be notified that the login was unsuccessful and you can go back and try again.</li>
       </ul>
 
-      <ul class ="reservationlist">
-        <li class ="listtwo"> </li>
-        <li class ="listtwo"> </li>
-        <li class ="listtwo"> </li>
-        <li class ="listtwo"> </li>
-      </ul>
-
       <h3> How to make a Reservation </h3>
       <ul class ="reservationlist">
         <li class ="listtwo">Once you are logged into your account, you are now able to make a reservation.</li>
