@@ -1,27 +1,11 @@
-html{
-  background-image:url(../images/thatView.jpg);
-  background-repeat:no-repeat;
-  background-size:contain;
-  -webkit-background-size:cover;
-  -moz-background-size:cover;
-  -o-background-size:cover;
-  background-size:cover;
- font-family: 'Bree Serif'; font-size: 32px;
-}
-p{
-  font-weight:100;
-  letter-spacing:2;
-  font-size:20px;
-}
 .info-box{
-  width:800px;
-  height:450px;
+  width:1200px;
+  height:100%px;
   background:rgba(0,0,0,0.7);
   padding:40px;
   color:white;
   margin:0 auto;
   margin-top:100px;
-  text-align:center;
 }
 .prof-pic{
   border-radius:50%;
@@ -42,17 +26,53 @@ p{
 .image-cred{
   position:fixed;
   bottom:0;
-  left:0;	
+  left:0; 
 }
 
 body {
-  font-family: 'Bree Serif'; font-size: 32px;
+  font-family: 'Bree Serif';
   text-shadow: 0 .05rem .1rem rgba(0,0,0,.5);
   margin: 0;
   background-color: #f0f0f0;
-  text-align: center;
+  
 }
 
+.h1, .h2, h1, h2  {
+  margin-top: 25px;
+    margin-bottom:5px;
+    text-align: left;
+    font-size: 20px;
+}
+.signuplist, .loginlist{
+  margin-top: 0px;
+    margin-bottom:0px;
+  text-align: left;
+  width: 450px;
+
+}
+
+.reservationlist{
+  margin-top: 0px;
+    margin-bottom:0px;
+  text-align: left;
+}
+
+.h3, .h4, .h5, h3, h4, h5 {
+    margin-top: 25px;
+    margin-bottom:5px;
+    text-align: left;
+    font-size:20px;
+}
+
+.listone {
+  font-size:15px;
+  text-align: left;
+}
+
+.listwo {
+  font-size:15px;
+  text-align: right;
+}
 .navbar {
   background-color: #fff;
   font-size: 18px;
