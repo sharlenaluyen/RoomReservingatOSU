@@ -2,7 +2,7 @@
     height: 200px;
     text-align: center;
     font-size: 12px;
-    /*overflow:auto;*/
+    overflow:auto;
     transform: translate(10%, 90%);
     position: fixed;
     margin-top: 20%

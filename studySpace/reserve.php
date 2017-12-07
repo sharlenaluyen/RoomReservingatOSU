@@ -142,7 +142,9 @@
 	//echo "<h1>Reservations</h1>";
 	//echo "</div>";
 	echo "<div class='reservation-box'>";
+	echo "</br></br></br>";
 	echo "<h1>Reservations</h1>";
+	//echo "\n\n\n\n";
 	echo "<table id='reservation'>
 	<tr>
 	  <th>Date</th>
@@ -186,7 +188,7 @@
 </div>
 
 <div id="id02" class="modal">
-  <form class="modal-content animate" action="action_page.php" method="post">  
+  <form class="modal-content animate" action="action_page.php" method="post">
    <h1 id="clickedDate"></h1>
     <div class="container">
     <label><b>Start Time</b></label>
@@ -226,7 +228,7 @@
 }
 </script>
 <script type="application/javascript">
-	$(".calendar-day, .edit_btn").click(function(){ 
+	$(".calendar-day, .edit_btn").click(function(){
 		var day = this.id;
 		document.getElementById("clickedDate").innerHTML = "Day: " + day;
 
@@ -236,11 +238,11 @@
 		else{
 			day = "0" + day;
 			document.getElementById("cday").value = "2017-12-" + day;
-		}	
+		}
 	});
 </script>
 <script type="application/javascript">
-	$(".edit_btn").click(function(){ 
+	$(".edit_btn").click(function(){
 		var editId = this.id;
 		var startT = document.getElementById(editId + "-StrT").innerHTML;
 		var endT = document.getElementById(editId + "-EndT").innerHTML;
