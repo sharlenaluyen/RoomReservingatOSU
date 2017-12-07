@@ -23,6 +23,7 @@
           <li class="navitem navlink active"><a href="aboutUs.php">About Us</a></li>
 	        <li class="navitem navlink"><a href="aboutUs/FAQ/faq.php">FAQ</a></li>
           <li class="navitem navlink"><a href="aboutUs/contact/contact.php">Contact Us</a></li>
+		<li class="navitem navlink"><a href="aboutUs/FAQ/help.php">Help</a></li>
           </li>
         </ul>
       </nav>
