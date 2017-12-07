@@ -12,7 +12,7 @@
 	$startTime = mysqli_real_escape_string($conn, $_POST['sTime']);
 	$endTime = mysqli_real_escape_string($conn, $_POST['eTime']);
 	$date = mysqli_real_escape_string($conn, $_POST['cday']);
-	$roomId = 0;
+	$roomId = 0;//mysqli_real_escape_string($conn, $_POST['roomNum']);
 	$onid = $_SESSION["onid"];
 
 	for($i = 6; $i < 9 ; $i++){
