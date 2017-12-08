@@ -6,17 +6,13 @@
   <head>
   <link href= "https://fonts.googleapis.com/css?family=Pacifico" rel="stylesheet">
 
-    <link href = "https://fonts.googleapis.com/css?family=BreeSerif" rel = "stylesheet">
+  <!--  <link href = "https://fonts.googleapis.com/css?family=BreeSerif" rel = "stylesheet">-->
 
     <meta charset="utf-8">
     <title>Room Reservation</title>
-    <link rel="stylesheet" href="../loginStuff/index.css" media="screen">
-    <link rel="stylesheet" href="../loginStuff/cover.css" media="screen">
+    <link rel="stylesheet" href="css/index.css" media="screen">
+    <link rel="stylesheet" href="css/cover.css" media="screen">
 
-    <title>Cover Template for Bootstrap</title>
-
-    <!-- Custom styles for this template -->
-    <link href="css/cover.css" rel="stylesheet">
   </head>
 
   <body>
@@ -47,25 +43,38 @@
         </ul>
       </nav>
     </header>
+<?php
+	echo "<h1 class='cover-heading'> Student ONID: " . $_SESSION["onid"] . "</h1>";
+?>
 
-	  <main role="main" class="inner cover">
+<button type="button" class="pass_btn" onclick="document.getElementById('id01').style.display='block'">Change Password</button>
 
-    <p class="lead">Account Details: <br> <p>
-    <p class="lead">
-      <!--<a href="#" class="btn btn-lg btn-secondary">Learn more</a>-->
-    </p>
-	  <?php
-		echo "<h1 class='cover-heading'> Student ONID: " . $_SESSION["onid"] . "</h1";
-	  ?>
+<div id="id01" class="modal">
+  <form class="modal-content animate" action="passUpdate.php" method="post">
+    <div class="container">
+      <label><b>Old Password</b></label>
+       <input type="text" placeholder="Enter Old Password" name="old_psw" required>
+	
+	<label><b>New Password</b></label>
+	<input type="password" placeholder="Enter New Password" name="new_psw" required>
+	<button class="sub_btn" type="submit">Update</button>
+      </div>
+	
+   <div class="container" style="background-color:#f1f1f1">
+	<button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+    </div>
+  </form>
+<div>
+<button type="button" onclick="document.getElementById('id01').style.display='block'">Change Password</button>
 
-	  </main>
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="../../../../assets/js/vendor/popper.min.js"></script>
-    <script src="../../../../dist/js/bootstrap.min.js"></script>
+<script type="application/javascripti">
+	var modal = document.getElementById('id01');
+	
+	window.onclick = function(event){
+		if (event.target == modal){
+			modal.style.display = "none";
+		}
+	}
+</script>
   </body>
 </html>

@@ -1,3 +1,4 @@
+
 body {
   font-family: 'Bree Serif'; font-size: 32px;
   text-shadow: 0 .05rem .1rem rgba(0,0,0,.5);
@@ -39,12 +40,14 @@ audio, canvas, progress, video {
 }
 /*    object-fit: contain;
 }
+
 @media (min-width: 1500px)
 .bignumber {
     font-size: 400px;
 }
 @media (min-width: 992px)
 .bignumber {
+
 }*/
 
 

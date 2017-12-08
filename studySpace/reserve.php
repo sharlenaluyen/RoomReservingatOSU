@@ -1,5 +1,4 @@
 <?php
-	//See if user is loged in
 	session_start();
 	if ($_SESSION["usr"] == ""){
 		header("Location: ../index.php");
@@ -81,7 +80,6 @@
 	<link rel="stylesheet" href="../studySpace/css/calendar.css"/>
 	<link rel="stylesheet" href="../studySpace/css/master.css">
 	<link rel="stylesheet" href="../studySpace/css/popbox.css"/>
-	<link rel="stylesheet" href="css/dropBox.css"/>
 
 	<meta charset="utf-8">
 	<title>Reserve a Study Space</title>
@@ -130,7 +128,7 @@
 	if (!$conn) {
 		die('Could not connect: ' . mysql_error());
 	}
-#
+
 	$query_res = "SELECT DISTINCT(Project_Reservation.Calendar_ID), Project_Reservation.Start_Time, 
 		Project_Reservation.End_Time, Project_Reservation.Date, Project_Calendar.Room_ID
 		FROM Project_Reservation
@@ -156,6 +154,7 @@
 	  <th>End Time</th>
 	</tr>";
 /*-----------------Generating reservations here--------------------*/
+	/*Generating reservations here*/
 	while ($row = mysqli_fetch_assoc($result)){
 		echo "<tr>";
 		echo "<td id=". $row['Calendar_ID'] . "-Date" . ">" . $row['Date'] . "</td>";
@@ -164,36 +163,24 @@
 		echo "<td id=". $row['Calendar_ID'] . "-EndT" . ">". $row['End_Time'] . "</td>";
 		echo "<td><button id=". $row['Calendar_ID'] ." onclick='document.getElementById(\"id02\").style.display=\"block\"' class='edit_btn' type='submit'>Edit</buton><button id=". $row['Calendar_ID'] ." onclick='document.getElementById(\"id03\").style.display=\"block\"' class='rm_btn' type='submit'>Remove</buton></td>";
 		echo "</tr>";
-
 	}
 /*------------------------------------------------------------------*/
 	echo "</table>";
 	echo "</div>";
 	?>
 </div>
-    </main>
+    </main><!-- /.container -->
 <div id="id01" class="modal">
   <form class="modal-content animate" action="action_page.php" method="post">
    <h1 id="clickedDate"></h1>
     <div class="container">
-      <br class="floating-box"><label><b>Start Time</b></label>
-      <input type="time" for="sTime" name="sTime" id="sTime"></br>
-      <br class="floating-box"><label><b>End Time</b></label>
-      <input type="time"for="eTime" name="eTime" id="eTime"></br>
-      <br class="floating-box"><label><b>Date</b></label>
-      <input type="date" id="cday" for="cday" name="cday" ></br>
-      <br class="floating-box"><label><b>Room</b></label>
-      <!--<select id="roomSelection">
-	 <option value="blank"></option>
-	/* <?php
-	//	$i = 1;
-	//	$result = mysqli_query($conn, $query_room);
-	//	while ($row = mysqli_fetch_assoc($result)){
-	//		echo "<option value=". $i++ .">". $row["Room_ID"] ."</option>";
-	//	}
-	//?>
-      </select></br>
-      <input type="hidden" id="roomNum" for="roomNum" name="roomNum">-->
+      <label><b>Start Time</b></label>
+      <input type="time" for="sTime" name="sTime" id="sTime">
+      <label><b>End Time</b></label>
+      <input type="time"for="eTime" name="eTime" id="eTime">
+      <br></br>
+      <label><b>Date</b></label>
+      <input type="date" id="cday" for="cday" name="cday" >
       <button type="submit" class="sub_btn">Reserve</button>
     </div>
 
@@ -235,27 +222,15 @@
     </div>
   </form>
 </div>
-<!-- ############################################################# -->
-<!-- ############### UPDATE button popup  ######################## -->
-<div id="id02" class="modal">
-  <form class="modal-content animate" action="edit_page.php" method="post">  
-   <h1 id="clickedDate"></h1>
-    <div class="container">
-    <label><b>Start Time</b></label>
-      <input type="time" for="sTimeMod" name="sTimeMod" id="sTimeMod">
-      <label><b>End Time</b></label>
-      <input type="time"for="eTimeMod" name="eTimeMod" id="eTimeMod">
-      <br></br>
-      <label><b>Date</b></label>
-      <input type="date" id="cdayMod" for="cdayMod" name="cdayMod" >
-      <input type="hidden" id="calId" for="calId" name="calId">
-      <button type="submit" class="sub_btn">Update</button>
-    </div>
-    <p class="lead">Account Details: <br> <p>
-    <p class="lead">
-      <!--<a href="#" class="btn btn-lg btn-secondary">Learn more</a>-->
-<!-- ############################################################# -->
-<!-- ############## Gets selected modal  ##########################-->		
+
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery.min.js"><\/script>')</script>
+    <script src="../../../../assets/js/vendor/popper.min.js"></script>
+    <script src="../../../../dist/js/bootstrap.min.js"></script>
 <script>
     // Get the modal
     var modal1 = document.getElementById('id01');
@@ -275,10 +250,8 @@
     }
 }
 </script>
-<!-- ############################################################ -->
-<!-- Gets User selected day from the calendar and updates the date in the modal  -->
 <script type="application/javascript">
-	$(".calendar-day").click(function(){ 
+	$(".calendar-day, .edit_btn").click(function(){ 
 		var day = this.id;
 		document.getElementById("clickedDate").innerHTML = "Day: " + day;
 
@@ -288,18 +261,9 @@
 		else{
 			day = "0" + day;
 			document.getElementById("cday").value = "2017-12-" + day;
-		}
+		}	
 	});
 </script>
-<!--<script type="application/javascript">
-	$("roomSelect").click(function(){ 
-		var e = document.getElementById("roomSelect");
-		var strRoom = e.options[e.selectedIndex].text;
-
-		document.getElementById("roomNum").value = strRoom;
-	});
-</script>-->
-<!-- ################# UPDATES user reservations ################ -->
 <script type="application/javascript">
 	$(".edit_btn").click(function(){ 
 		var editId = this.id;
@@ -313,8 +277,6 @@
 		document.getElementById("cdayMod").value = dateT;
 	});
 </script>
-<!-- ########################################################## -->
-<!-- # Deleats a reservation  # -->		
 <script type="application/javascript">
 	$(".rm_btn").click(function(){ 
 		var rmId = this.id;

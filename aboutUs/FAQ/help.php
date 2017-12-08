@@ -19,7 +19,7 @@
       <nav class="navbar">
         <ul class="navlist">
           <li class="navitem navlink"><a href="../../aboutUs.php">About Us</a></li>
-          <li class="navitem navlink active"><a href="faq.php">FAQ</a></li>
+          <li class="navitem navlin activek"><a href="faq.php">FAQ</a></li>
           <li class="navitem navlink"><a href="../contact/contact.php">Contact Us</a></li>
           </li>
         </ul>

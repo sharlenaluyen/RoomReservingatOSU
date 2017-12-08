@@ -28,7 +28,7 @@
 			  SET salt='$salt', Password='$passwordmd5'
 			  WHERE OSU_ID = '$onid'";
 		if (mysqli_query($conn, $query)){
-			header("Location: userSettings.php");
+			header("Location: account.php");
 		}
 		else{
 			echo "<div>ERROR: " . mysqli_error($conn) ."</div><a href='signUp.php' class='back_button'>Back</a> ";

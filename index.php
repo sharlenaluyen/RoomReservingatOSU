@@ -23,6 +23,7 @@
 
       <nav class="navbar">
 	<ul class="navlist">
+<!-- See if a user is loged in, output differently to non users -->
 	  <?php
 	     if ($_SESSION["usr"] != ""){
 	     	echo "<li class='navitem navlink'><a>Logged in as " . $_SESSION["usr"] . "</a></li>"; //href='#'
@@ -38,7 +39,6 @@
 		
 			echo "<li class='navitem navlink'><a href='studySpace/reserve.php'>Find a Study Space</a></li>";
 
-			echo "<li class='navitem navlink'><a href='down.html'>Edit a Study Space</a></li>";
 		}
 	  ?>
           <li class="navitem navlink"><a href="aboutUs.php">About Us</a></li>
