@@ -48,6 +48,7 @@
 ?>
 
 <button type="button" class="pass_btn" onclick="document.getElementById('id01').style.display='block'">Change Password</button>
+<button type="button" class="pass_btn" onclick="document.getElementById('id02').style.display='block'">Change Username</button>
 
 <div id="id01" class="modal">
   <form class="modal-content animate" action="passUpdate.php" method="post">
@@ -64,14 +65,32 @@
 	<button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
     </div>
   </form>
-<div>
-<button type="button" onclick="document.getElementById('id01').style.display='block'">Change Password</button>
-
-<script type="application/javascripti">
-	var modal = document.getElementById('id01');
+</div>
+<div id="id02" class="modal">
+  <form class="modal-content animate" action="usernUpdate.php" method="post">
+    <div class="container">
+      <label><b>Old Password</b></label>
+       <input type="text" placeholder="New UserName" name="new_usrn" required>
 	
+	<label><b>New Password</b></label>
+	<input type="text" placeholder="confirm New Username" name="conf_usern" required>
+	<button class="sub_btn" type="submit">Update</button>
+      </div>
+	
+   <div class="container" style="background-color:#f1f1f1">
+	<button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Cancel</button>
+    </div>
+  </form>
+</div>
+<script type="application/javascripti">
+	var modal1 = document.getElementById('id01');
+	var modal2 = document.getElementById('id02');
+
 	window.onclick = function(event){
-		if (event.target == modal){
+		if (event.target == modal1){
+			modal.style.display = "none";
+		}
+		else if (event.target == modal2){
 			modal.style.display = "none";
 		}
 	}
